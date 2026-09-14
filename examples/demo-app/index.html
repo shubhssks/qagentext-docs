@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Pad - QAgentExt sample</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #1c3028; background: #f3f7f5; }
+    header { background: #174c3a; color: white; padding: 20px 24px; }
+    header p { margin: 0; }
+    main { max-width: 660px; margin: 32px auto; padding: 0 24px; }
+    h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; }
+    h2 { font-size: 19px; }
+    form { margin-top: 28px; }
+    label { display: block; font-weight: 600; margin-bottom: 8px; }
+    input { display: block; width: 100%; padding: 12px; font: inherit; border: 1px solid #758c80; border-radius: 4px; }
+    button { margin-top: 16px; padding: 12px 20px; color: white; background: #175a3e; border: 0; border-radius: 4px; font: 600 16px system-ui; cursor: pointer; }
+    input:focus-visible, button:focus-visible { outline: 3px solid #af4c13; outline-offset: 4px; }
+    #feedback { display: block; min-height: 32px; margin-top: 18px; font-weight: 600; color: #145435; }
+    section { border-top: 1px solid #b8c9bf; margin-top: 24px; }
+    #saved-task { overflow-wrap: anywhere; }
+    footer { margin-top: 40px; color: #4c6256; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header><p>QAgentExt sample app</p></header>
+  <main>
+    <h1>Task Pad</h1>
+    <p>A local scratchpad for a sample task.</p>
+    <form id="task-form">
+      <label for="task-name">Task name</label>
+      <input id="task-name" name="task-name" required autocomplete="off" maxlength="120">
+      <button type="submit">Save task</button>
+      <output id="feedback" role="status" aria-live="polite"></output>
+    </form>
+    <section aria-labelledby="saved-heading">
+      <h2 id="saved-heading">Saved task</h2>
+      <p id="saved-task">No task yet.</p>
+    </section>
+    <footer>Dummy data only. Reloading clears this page.</footer>
+  </main>
+  <script>
+    document.querySelector('#task-form').addEventListener('submit', event => {
+      event.preventDefault();
+      document.querySelector('#saved-task').textContent = document.querySelector('#task-name').value;
+      document.querySelector('#feedback').textContent = 'Task saved';
+    });
+  </script>
+</body>
+</html>

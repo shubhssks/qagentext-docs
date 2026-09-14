@@ -1,0 +1,14 @@
+{
+  "name": "qagentext-docs-examples",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent local documentation examples for QAgentExt.",
+  "scripts": {
+    "demo": "node examples/demo-app/serve.mjs",
+    "test": "playwright test examples/playwright --workers=1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1"
+  }
+}
